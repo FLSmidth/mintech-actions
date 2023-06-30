@@ -1,0 +1,34 @@
+name: 'Read KeyVault Secret'
+description: "Reads secret from specified keyvault"
+author: 'Joergen and Robin'
+
+inputs:
+  secretNames:
+    description: 'Commaseparated list of secrets to read'
+    required: true
+  keyvaultName:
+    description: 'Name of keyvault to read from'
+    required: true
+
+branding:
+  color: 'purple'
+  icon: check-circle
+
+runs:
+  using: composite
+
+  steps:
+  - uses: FLSmidth/mintech-actions@main
+  - uses: Azure/login@v1
+    with:
+      creds: ${{ secrets.MIN_KEYVAULT_CCOE_KV01 }}
+  - uses: Azure/get-keyvault-secrets@v1
+    with: 
+      keyvault: '${{ inputs.keyvaultName }}'
+      secrets: '${{ inputs.secretNames }}'
+    id: keyvault
+
+outputs:
+  secrets:
+    description: "Contains the secrets requested"
+    value: ${{ steps.keyvault.outputs }}
