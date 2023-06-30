@@ -18,7 +18,7 @@ runs:
   using: composite
 
   steps:
-  - uses: FLSmidth/mintech-actions@main
+  - uses: actions/checkout@v2
   - uses: Azure/login@v1
     with:
       creds: ${{ secrets.MIN_KEYVAULT_CCOE_KV01 }}
