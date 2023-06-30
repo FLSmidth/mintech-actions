@@ -1,4 +1,4 @@
-name: 'Read KeyVault Secret'
+name: 'Read KeyVault Secrets'
 description: "Reads secret from specified keyvault"
 author: 'Joergen and Robin'
 
