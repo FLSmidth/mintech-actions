@@ -12,7 +12,6 @@ inputs:
   keyvaultCreds:
     description: 'The credentials for the keyvault service principal'
     required: true
-    default: ${{ secrets.MIN_KEYVAULT_CCOE_KV01 }}
 
 branding:
   color: 'purple'
